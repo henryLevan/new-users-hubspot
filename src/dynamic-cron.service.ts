@@ -9,7 +9,7 @@ export class DynamicCronService implements OnModuleInit {
   constructor(@InjectSchedule() private readonly schedule: Schedule, private appService : AppService) {}
 
   onModuleInit(): any {
-    this.schedule.scheduleCronJob('custom_cron_job', '*/10 * * * *', () => {
+    this.schedule.scheduleCronJob('custom_cron_job', '*/1 * * * *', () => {
         this.appService.getUSers().subscribe(data => {
             console.log('se ejecuto jobs users')
             if(data.data.success){
